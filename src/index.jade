@@ -1,0 +1,50 @@
+doctype html
+html.no-js(lang="en")
+    include includes/head
+
+    //- Add your site or application content here
+
+    body
+        <!--[if IE 8]>
+        p.browserupgrade You are using an <strong>outdated</strong> browser. Please 
+            a(href="http://browsehappy.com") upgrade your browser
+            |  to improve your experience.
+        <![endif]-->
+
+
+        header.main-header
+            .main-header-logo
+                h2.logo Zitroxela Media Inc.
+
+            .main-header-search
+                h2 Search Section
+
+        section.home-hero
+            .home-hero-content
+                h2 Home Hero Section
+                p This will have a call to action
+                button.btn.btn-main Hello
+
+        section.main-section
+            article.main-content
+                header.content-header
+                    h2 Title
+                .content-body
+                    p This is a sample paragraph.  I'm trying not to have it change anything so that it looks fine on the screen.
+                      a(href="") This is a link
+                      |  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu.
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            aside.sidebar
+                header.sidebar-header
+                    h2 Sidebar
+                .sidebar-content
+                    p This is where the content for the sidebar will go.
+
+
+        footer.main-footer
+            p &copy; Zitroxela Media Inc. 2016
+
+
+        script(src="js/main.js")
+
+        include includes/analytics.html

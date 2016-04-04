@@ -1,0 +1,9 @@
+a {
+  border-bottom: dotted 1px darken($site-color, 20%);
+  color: $site-color;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 0;
+  }
+}

@@ -1,0 +1,35 @@
+body {
+  background-color: $body-bg;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $grey;
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+// Selection Styling ===========================================================
+
+:-moz-selection {
+  background: $selection-background;
+  text-shadow: none;
+}
+
+:selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+// Browser Upgrade Prompt ======================================================
+
+.browserupgrade {
+  background: #ccc;
+  color: #000;
+  margin: .2em 0;
+  padding: .2em 0;
+}
+
+// wrapper =====================================================================
