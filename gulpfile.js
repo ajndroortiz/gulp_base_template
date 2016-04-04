@@ -77,9 +77,7 @@ gulp.task('jade', function () {
 gulp.task('sass', function () {
   return gulp.src(src.scss + 'main.scss')
     .pipe(sourcemaps.init())
-      .pipe(sass({
-        outputStyle: 'compressed'
-      }))
+      .pipe(sass())
       .pipe(prefix({
         browsers: ['last 2 versions']
       }))
