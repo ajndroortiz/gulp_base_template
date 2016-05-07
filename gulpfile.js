@@ -5,7 +5,7 @@ var gulp           = require('gulp'),
     uglify         = require('gulp-uglify'),
     imagemin       = require('gulp-imagemin'),
     pngquant       = require('imagemin-pngquant'),
-    jade           = require('gulp-jade'),
+    pug           = require('gulp-pug'),
     rename         = require('gulp-rename'),
     cssNano        = require('gulp-cssnano'),
     sourcemaps     = require('gulp-sourcemaps'),
@@ -17,7 +17,7 @@ var gulp           = require('gulp'),
  */
 
 var src = {
-  jade: './src/*.jade',
+  pug: './src/*.pug',
   scss: './src/scss/',
   js: './src/js/',
   imgs: './src/imgs/',
@@ -62,9 +62,9 @@ gulp.task('normalize', function () {
 /**
  * Compose JADE Files into HTML
  */
-gulp.task('jade', function () {
-  return gulp.src(src.jade)
-    .pipe(jade())
+gulp.task('pug', function () {
+  return gulp.src(src.pug)
+    .pipe(pug())
     .pipe(gulp.dest(output.html))
     .pipe(browserSync.stream());
 });
@@ -106,11 +106,11 @@ gulp.task('images', function () {
  * Watch Task
  */
 
-gulp.task('watch', ['jade', 'sass', 'images', 'appJS'], function () {
+gulp.task('watch', ['pug', 'sass', 'images', 'appJS'], function () {
   browserSync.init({
     server: './output'
   });
-  gulp.watch(src.jade, ['jade']);
+  gulp.watch(src.pug, ['pug']);
   gulp.watch(src.scss + '**/*.scss', ['sass']);
   gulp.watch(src.js + 'app.js', ['appJS']);
   gulp.watch(src.imgs + '*', ['images']);
