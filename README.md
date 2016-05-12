@@ -5,4 +5,4 @@ This is my starter template for my projects.  Uses Gulp to do all the compiling 
 It includes the following, which are loaded when npm & bower install are run:
 - Gulp
 - Modernizr
-- Normalize.css v4
+- Normalize.css v4.1.1

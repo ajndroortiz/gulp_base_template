@@ -22,7 +22,7 @@ var src = {
   js: './src/js/',
   imgs: './src/imgs/',
   modernizr: './bower_components/modernizr/modernizr.js',
-  normalize: './src/normalize.css'
+  normalize: './node_modules/normalize.css/normalize.css'
 };
 
 var output = {
@@ -44,23 +44,24 @@ gulp.task('modernizr', function () {
     .pipe(gulp.dest(output.js + 'vendor/'));
 });
 
-// Minify main site Javascript file
-gulp.task('appJS', ['modernizr', 'normalize'], function () {
-  return gulp.src(src.js + 'app.js')
-    .pipe(uglify())
-    .pipe(rename('main.js'))
-    .pipe(gulp.dest(output.js))
-    .pipe(browserSync.stream());
-});
-
+// Minimize and move normalize.css to template directory
 gulp.task('normalize', function () {
   return gulp.src(src.normalize)
     .pipe(cssNano())
     .pipe(gulp.dest(output.css));
 });
 
+// Minify main site Javascript file
+gulp.task('appJS', ['modernizr', 'normalize'], function () {
+  return gulp.src(src.js + 'app.js')
+  .pipe(uglify())
+  .pipe(rename('main.js'))
+  .pipe(gulp.dest(output.js))
+  .pipe(browserSync.stream());
+});
+
 /**
- * Compose JADE Files into HTML
+ * Compose PUG Files into HTML
  */
 gulp.task('pug', function () {
   return gulp.src(src.pug)
@@ -79,7 +80,8 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(prefix({
-        browsers: ['last 2 versions']
+        browsers: ['last 2 versions'],
+        cascade: false
       }))
       .pipe(cssNano())
       .pipe(rename('style.css'))
